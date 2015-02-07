@@ -1,0 +1,14 @@
+{
+  "name": "mentalverse",
+  "description": "A thought organization tool written with Node",
+  "version": "0.0.1",
+  "author": "Mason Long (@metarecluse)",
+  "main": "server.js",
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "body-parser": "*",
+    "method-override": "*"
+  }
+}
