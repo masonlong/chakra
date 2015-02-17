@@ -6,9 +6,17 @@
   "main": "server.js",
   "dependencies": {
     "express": "*",
+    "express-session": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "passport-google-oauth" : "*",
+    "connect-flash": "*",
+    "bcrypt-nodejs": "*",
     "mongoose": "*",
     "morgan": "*",
     "body-parser": "*",
+    "cookie-parser": "*",
     "method-override": "*"
   }
 }

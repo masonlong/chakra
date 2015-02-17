@@ -2,13 +2,17 @@
 
     // set up ========================
     var express  = require('express'); 
-    var app      = express();                               // create our app w/ express
-    var database = require('./config/database')
-    var mongoose = require('mongoose');                     // mongoose for mongodb
-    var morgan = require('morgan');             // log requests to the console (express4)
-    var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
-    var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+    var app      = express();                               
     var port = process.env.PORT || 8080;
+    var mongoose = require('mongoose');                     
+    var morgan = require('morgan');             
+    var bodyParser = require('body-parser'); 
+    var cookieParser = require('cookie-parser');    
+    var methodOverride = require('method-override'); 
+    var passport = require('passport');
+    var flash = require('connect-flash');
+    var session = require('express-session');
+    var database = require('./config/database');
 
     // configuration =================
     
@@ -16,15 +20,25 @@
 
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
     app.use(morgan('dev'));                                         // log every request to the console
+    app.cookieParser());                                            // Read cookies (needed for auth)
+    app.use(bodyParser());                                          // Get information from html forms
     app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
     app.use(bodyParser.json());                                     // parse application/json
     app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
     app.use(methodOverride());
 
+    app.set('view engine', 'ejs'); // set up ejs for templating
+
+    //required for passport
+    app.use(session({ secret: 'A1234567890B'})); //session secret
+    app.use(passport.initialize());
+    app.use(passport.session()); // persistent login sessions
+    app.use(flash()); // use connect-flash for flash messages stored in session
+
     // routes ======================================================================
-    require('./app/routes')(app);
+    require('./app/routes')(app, passport); // load routes and pass in our app and fully configured passport
 
 
     // listen (start app with node server.js) ======================================
-    app.listen(8080);
-    console.log("App listening on port 8080");
+    app.listen(port);
+    console.log("App listening on port " + port);
