@@ -13,6 +13,7 @@
     var flash = require('connect-flash');
     var session = require('express-session');
     var database = require('./config/database');
+    require('./config/passport')(passport);
 
     // configuration =================
     
@@ -20,13 +21,14 @@
 
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
     app.use(morgan('dev'));                                         // log every request to the console
-    app.cookieParser());                                            // Read cookies (needed for auth)
+    app.use(cookieParser());                                            // Read cookies (needed for auth)
     app.use(bodyParser());                                          // Get information from html forms
     app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
     app.use(bodyParser.json());                                     // parse application/json
     app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
     app.use(methodOverride());
 
+    app.set('views', __dirname + '/public/views/');
     app.set('view engine', 'ejs'); // set up ejs for templating
 
     //required for passport
