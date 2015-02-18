@@ -79,6 +79,32 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+    // route middleware to make sure a user is logged in
+    function isLoggedIn(req, res, next) {
+        // if user is authenticated in the session, carry on
+        if (req.isAuthenticated())
+            return next();
+    };
+
+    app.get('/unlink/local', function(req, res) {
+        var user            = req.user;
+        user.local.email    = undefined;
+        user.local.password = undefined;
+        user.save(function(err) {
+            res.redirect('/profile');
+        });
+    });
+
+    app.get('/unlink/google', function(req, res) {
+        var user          = req.user;
+        user.google.token = undefined;
+        user.save(function(err) {
+           res.redirect('/profile');
+        });
+    });
+
+
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
     // the callback after google has authenticated the user
@@ -86,18 +112,37 @@ module.exports = function(app, passport) {
             passport.authenticate('google', {
                     successRedirect : '/profile',
                     failureRedirect : '/'
-            }));    
+            }));
 
-   // route middleware to make sure a user is logged in
-    function isLoggedIn(req, res, next) {
-        // if user is authenticated in the session, carry on
-        if (req.isAuthenticated())
-            return next();
-    };
+// =============================================================================
+// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
+// =============================================================================
+
+// locally --------------------------------
+    app.get('/connect/local', function(req, res) {
+        res.render('connect-local.ejs', { message: req.flash('loginMessage') });
+    });
+    app.post('/connect/local', passport.authenticate('local-signup', {
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+
+    // google ---------------------------------
+
+    // send to google to do the authentication
+    app.get('/connect/google', passport.authorize('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authorized the user
+    app.get('/connect/google/callback',
+        passport.authorize('google', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
 
     // Other components
     app.get('/todo', function(req, res) {
         res.sendfile('./public/views/todo.html', { message: req.flash('signupMessage') });
     });
-
 };
+
