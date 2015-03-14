@@ -1,4 +1,5 @@
 var Todo = require('./models/todo');
+var Journal = require('./models/journalModel.js')
 
 function getTodos(res){
     Todo.find(function(err, todos) {
@@ -9,6 +10,14 @@ function getTodos(res){
 
             res.json(todos); // return all todos in JSON format
         });
+};
+
+function getJournals(res){
+    Journal.find(function(err, journal) {
+        if (err)
+            res.send(err)
+        res.json(journal);
+    });
 };
 
 module.exports = function(app, passport) {
@@ -47,6 +56,32 @@ module.exports = function(app, passport) {
                 res.send(err);
 
             getTodos(res);
+        });
+    });
+
+    //API Journal
+    app.get('/api/journal', function(req, res) {
+        getJournals(res);
+    });
+    app.post('/api/journal', function(req, res) {
+        Journal.create({
+            text: req.body.text,
+            done: false
+        }, function(err, todo) {
+            if (err)
+                res.send(err);
+                getJournals(res);
+        });
+    });
+
+    app.delete('/api/journal/:journal_id', function(req, res) {
+        Journal.remove({
+            _id : req.params.journal_id
+        }, function(err, journal) {
+            if (err)
+                res.send(err);
+
+            getJournals(res);
         });
     });
 
@@ -143,6 +178,9 @@ module.exports = function(app, passport) {
     // Other components
     app.get('/todo', function(req, res) {
         res.sendfile('./public/views/todo.html', { message: req.flash('signupMessage') });
+    });
+    app.get('/journal', function(req, res) {
+        res.sendfile('./public/views/journal.html', { message: req.flash('signupMessage') });
     });
 };
 

@@ -1,1 +1,1 @@
-angular.module('mvTodo', ['todoController', 'todoService']);
+angular.module('mvJournal', ['journalController', 'journalService']);

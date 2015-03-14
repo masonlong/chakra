@@ -17,6 +17,7 @@
     "morgan": "*",
     "body-parser": "*",
     "cookie-parser": "*",
-    "method-override": "*"
+    "method-override": "*",
+    "bower": "*"
   }
 }

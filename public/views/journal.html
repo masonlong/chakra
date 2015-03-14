@@ -1,1 +1,23 @@
-journal
+<html ng-app="mvJournal">
+<head>
+	<link rel="stylesheet" href="vendor/medium-editor/dist/css/medium-editor.css"> <!-- Core -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/medium-editor/dist/css/themes/bootstrap.css"> <!-- Core -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script><!-- load angular -->
+    <script src="js/controllers/journalController.js"></script>
+	<script src="js/core.js"></script>
+	<script src="js/services/journalService.js"></script>
+	<script src="vendor/medium-editor/dist/js/medium-editor.js"></script>
+</head>
+
+<body ng-controller="mainJournalController">
+
+<h1>Journal</h1>
+<div type="text" class="input-group editable"></div>
+<button type="button" class="btn btn-default" ng-click="createJournal()">Add</button>
+
+
+</body>
+</html>
