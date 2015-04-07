@@ -1,26 +1,38 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; }
-    </style>
+    <title>Mentalverse</title>
+    <link rel="stylesheet" href="vendor/semantic/dist/semantic.css"> <!-- load bootstrap css -->
+    <script src="vendor/semantic/dist/semantic.min.js"></script>
 </head>
 <body>
-<div class="container">
-
-    <div class="jumbotron text-center">
-        <h1><span class="fa fa-lock"></span> Node Authentication</h1>
-
-        <p>Login or Register with:</p>
-
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a><br>
-        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+<div class="ui secondary pointing menu">
+  <a class="active item">
+    <i class="home icon"></i> Home
+  </a>
+  <a class="item">
+    <i class="book icon"></i> Journal
+  </a>
+  <a class="item">
+    <i class="tasks icon"></i> Todo
+  </a>
+  <a class="item">
+    <i class="calendar icon"></i> Calendar
+  </a>
+  <a class="item">
+    <i class="users icon"></i> People
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui transparent icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
     </div>
-
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
 </div>
 </body>
 </html>
