@@ -1,5 +1,5 @@
 #Mentalverse
-####Chakra
+####~Chakra~
 
 #####Components:
 
