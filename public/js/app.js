@@ -9,9 +9,9 @@ app.config(function ($routeProvider) {
 			controller: 'journalCtrl',
 			templateUrl: 'views/journal.html'
 		})
-		.when('/todo', {
+		.when('/organize', {
 			controller: 'todoCtrl',
-			templateUrl: 'views/todo.html'
+			templateUrl: 'views/organize.html'
 		})
 		.when('/calendar', {
 			controller: 'calendarCtrl',
