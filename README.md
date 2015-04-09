@@ -1,10 +1,10 @@
 #Mentalverse
 
-Components:
+###Components:
 
 -Journal (medium-editor)
 
-Instructions:
+###Instructions:
 
 1. Clone repo
 2. `cd ~/path/to/mentalverse && npm install`
