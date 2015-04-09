@@ -1,1 +1,0 @@
-angular.module('mvJournal', ['journalController', 'journalService', 'journalDirective']);

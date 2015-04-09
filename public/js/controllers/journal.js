@@ -1,6 +1,4 @@
-angular.module('journalController', []) 
-
-	.controller('mainJournalCtrl', function($scope, $http, Journal) {
+app.controller('journalCtrl', function($scope, $http) {
 		$scope.formData = {};
 		// GET ==============
 		// When landing on the page, get all todos and show them
@@ -23,5 +21,6 @@ angular.module('journalController', [])
 			})
 			.error(function(data) {})
 	};
+	
 
 	});

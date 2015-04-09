@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('journalDirective', ['angular-medium-editor'])
+angular.module('editor', ['angular-medium-editor'])
 
 .controller('mainController', ['$scope', function($scope) {
 

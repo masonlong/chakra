@@ -1,29 +1,17 @@
-<html ng-app="mvJournal">
+<html>
 <head>
-	<link rel="stylesheet" href="vendor/medium-editor/dist/css/medium-editor.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="vendor/medium-editor/dist/css/themes/default.css"> <!-- Core -->
 	<link rel="stylesheet" href="css/journal.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<script src="vendor/medium-editor/dist/js/medium-editor.js"></script>
-	<script src="vendor/angular/angular.js"></script>
-    <script src="vendor/medium-editor/dist/js/medium-editor.js"></script>
-    <script src="vendor/angular-medium-editor/dist/angular-medium-editor.js"></script>
-    <script src="js/controllers/journalController.js"></script>
-	<script src="js/core.js"></script>
-	<script src="js/services/journalService.js"></script>
-	    <script src="js/directives/angular-medium-editor.js"></script>
 </head>
 <body>
-    <div id="container" ng-controller="mainController">
+   <div id="container">
         <h1>Mentalverse Journal</h1>
-        <form name="journal">
-            <div ng-model="text" id="editForm" medium-editor></div>
+        <form name="journal" ng-controller="journalCtrl">
+            <div ng-model="text" id="editForm" medium-editor>{{ text }}</div>
         </form>
     </div>
-    <div id="container" ng-controller="mainJournalCtrl">
+    <div id="container">
         <button type="submit" class="btn btn-primary btn-lg" ng-click="createJournal()">Save</button>
     </div>
+
 </body>
 </html>

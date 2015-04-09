@@ -176,11 +176,6 @@ module.exports = function(app, passport) {
         }));
 
     // Other components
-    app.get('/todo', function(req, res) {
-        res.sendfile('./public/views/todo.html', { message: req.flash('signupMessage') });
-    });
-    app.get('/journal', function(req, res) {
-        res.sendfile('./public/views/journal.html', { message: req.flash('signupMessage') });
-    });
+
 };
 
