@@ -10,7 +10,7 @@
     "underscore": "",
     "font-awesome": "3.0.2",
     "emoji": "0.1.2",
-    "medium-editor": "~3.0.9",
+    "medium-editor": "*",
     "angular-medium-editor": "~0.0.6",
     "angular": "*",
     "angular-semantic-ui": "*",

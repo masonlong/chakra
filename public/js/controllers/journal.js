@@ -4,6 +4,9 @@ app.controller('journalCtrl', function($scope, $http) {
 		// When landing on the page, get all todos and show them
 		// Use the service to get all the todos
 
+		$scope.text =
+        '<p>Please enter your story here.</p>';
+
 	$scope.createJournal = function() {
 
 		alert("Hey!");
