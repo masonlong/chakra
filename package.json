@@ -10,7 +10,7 @@
     "ejs": "*",
     "passport": "*",
     "passport-local": "*",
-    "passport-google-oauth" : "*",
+    "passport-google-oauth": "*",
     "connect-flash": "*",
     "bcrypt-nodejs": "*",
     "mongoose": "*",
@@ -18,6 +18,11 @@
     "body-parser": "*",
     "cookie-parser": "*",
     "method-override": "*",
-    "bower": "*"
+    "bower": "*",
+    "main-bower-files": "2.5.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-load-plugins": "^0.9.0"
   }
 }

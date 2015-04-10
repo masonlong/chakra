@@ -1,24 +1,6 @@
 @import "clearfix";
 @import "pop-upwards";
 
-.data-medium-element {
-    sup {
-        vertical-align: super;
-    }
-
-    sub {
-        vertical-align: sub;
-    }
-
-    img {
-        max-width: 100%;
-    }
-}
-
-.medium-editor-hidden {
-    display: none;
-}
-
 %medium-toolbar-arrow {
     position: absolute;
     left: 50%;
@@ -69,9 +51,6 @@
             line-height: 1.33;
             text-decoration: none;
             box-sizing: border-box;
-            &:focus {
-                outline: none;
-            }
         }
 
         .medium-editor-action-underline {
@@ -100,15 +79,12 @@
 
 .medium-editor-toolbar-active, .medium-editor-anchor-preview-active {
     visibility: visible;
-}
-
-.sticky-toolbar {
-    position: fixed;
-    top: 1px;
-}
-
-.medium-editor-toolbar-active.stalker-toolbar {
-    animation: pop-upwards 160ms forwards linear;
+    -webkit-animation: pop-upwards 160ms forwards linear;
+       -moz-animation: pop-upwards 160ms forwards linear;
+        -ms-animation: pop-upwards 160ms forwards linear;
+         -o-animation: pop-upwards 160ms forwards linear;
+            animation: pop-upwards 160ms forwards linear;
+    transition: top .075s ease-out, left .075s ease-out;
 }
 
 .medium-editor-action-bold {
@@ -119,15 +95,14 @@
     font-style: italic;
 }
 
-.medium-editor-toolbar-form {
+.medium-editor-toolbar-form-anchor {
     display: none;
-
     input,
     a {
         font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
     }
 
-    .medium-editor-toolbar-input, label {
+    input {
         margin: 0;
         padding: 6px;
         width: 316px;
@@ -138,13 +113,9 @@
             outline: 0;
             border: none;
             box-shadow: none;
-            appearance: none;
+            -webkit-appearance: none;
+               -moz-appearance: none;
         }
-    }
-
-    label {
-        display: block;
-
     }
 
     a {
@@ -163,32 +134,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        content: attr(data-placeholder) !important;
+        content: attr(data-placeholder);
         font-style: italic;
-        white-space: pre;
-    }
-}
-
-.medium-editor-dragover {
-    background: #ddd;
-}
-
-.medium-image-loading {
-    width: 40px;
-    height: 40px;
-    background-color: #333;
-    display: inline-block;
-
-    border-radius: 100%;
-    animation: medium-image-loading-animation 1.0s infinite ease-in-out;
-}
-
-@keyframes medium-image-loading-animation {
-    0% {
-        transform: scale(0.0)
-    }
-    100% {
-        transform: scale(1.0);
-        opacity: 0;
     }
 }

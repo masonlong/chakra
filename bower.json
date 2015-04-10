@@ -16,7 +16,8 @@
     "angular-semantic-ui": "*",
     "angular-route": "*",
     "angular-ui-calendar": "*",
-    "jquery": "*"
+    "jquery": "*",
+    "gulp": "~3.8.11"
   },
   "resolutions": {
     "jquery": ">= 1.9.1"

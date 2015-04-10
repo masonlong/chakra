@@ -11,7 +11,7 @@ app.config(function ($routeProvider) {
 		})
 		.when('/organize', {
 			controller: 'todoCtrl',
-			templateUrl: 'views/organize.html'
+			templateUrl: 'views/orgList.html'
 		})
 		.when('/calendar', {
 			controller: 'calendarCtrl',
